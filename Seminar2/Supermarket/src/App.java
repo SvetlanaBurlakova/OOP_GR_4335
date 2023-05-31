@@ -4,7 +4,7 @@ import Classes.OrdinaryClient;
 import Classes.SpecialClient;
 import Interfaces.iActorBehavior;
 
-public class App {jkg
+public class App {
     public static void main(String[] args) throws Exception {
         Market market = new Market();
         iActorBehavior client1 = new OrdinaryClient("Boris");
@@ -20,9 +20,6 @@ public class App {jkg
         market.acceptToMarket(client5);
         market.acceptToMarket(client6);
         market.giveBackOrder(client2);
-
-
-
 
     }
 }

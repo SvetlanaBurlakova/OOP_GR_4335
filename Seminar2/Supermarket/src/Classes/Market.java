@@ -18,12 +18,20 @@ public class Market implements iMarketBehaviour,iQueueBehavoir,iReturnOrder {
     }
     /**
      * Выводится сообщение о том, что клиент пришел в магазин
-     * и вызывается метод добавления клиента в список покупателей
+     * вызывается метод добавления клиента в список покупателей
+     * если клиент акционный, проверяется и выводится информация об участия в акции
      */
     @Override
     public void acceptToMarket(iActorBehavior actor) {
         System.out.println(actor.getActor().getName()+" клиент пришел в магазин ");
         takeInQueue(actor);
+        if (actor instanceof ActionedClient) {
+            ActionedClient  actionedClient = (ActionedClient) actor;
+            if (actionedClient.isActionEligible) {                
+                System.out.println(actor.getActor().getName() +" клиент учавствует в акции");
+            }
+            else System.out.println(actor.getActor().getName() +" клиент не учавствует в акции, кол-во допустимых участников акции превышено");
+        }
     }
     /**
      * Клиент добавляется в очередь
@@ -118,11 +126,8 @@ public class Market implements iMarketBehaviour,iQueueBehavoir,iReturnOrder {
     public void takeMoney(iActorBehavior actor) {
         System.out.println(actor.getActor().getName()+" клиент взял деньги ");
     }
-    //public void action(iActorBehavior actor){
-    //    if (actor.isActionEligible){
-    //        System.out.println(actor.getActor().getName() +"клиент учавствует в акции");
-    //    }
-    //    else System.out.println(actor.getActor().getName() +"клиент не учавствует в акции");
-    //}
+    public void action(iActorBehavior actor){
+
+    }
 
 }

@@ -2,11 +2,12 @@ package Classes;
 
 import java.util.HashMap;
 
+
 public class ActionedClient extends Actor {
+    public boolean isActionEligible;
     private int maxActionedClients = 2;
-    public String actionName;
-    private static HashMap<String, Integer> countOfActionedClient;
-    private boolean isActionEligible;
+    private String actionName;
+    private static HashMap<String, Integer> countOfActionedClient = new HashMap<String, Integer>();
 
     /**
      * конструктор для акционного клиента
@@ -16,6 +17,11 @@ public class ActionedClient extends Actor {
     public ActionedClient(String name, String actionName) {
         super(name);
         this.actionName = actionName;
+        setActionName(actionName);
+        if (countOfActionedClient.get(actionName) <= maxActionedClients){
+            this.isActionEligible = true;
+        }
+        else this.isActionEligible = false;
     }
     /**
      * Получение имени клиента
@@ -25,11 +31,15 @@ public class ActionedClient extends Actor {
         return actionName;
     }
     /**
-     * Установка нового названия акции
+     * Метод увеличивающий счетчик кол-ва клиентов указанной акции.
+     * Если акции в списке нет - акция добавляется и счетчик ставится 1
      * @param Название акции
      */
-    public void setActionName(String actionName) {
-        this.actionName = actionName;
+    private void setActionName(String actionName) {
+        if (countOfActionedClient.containsKey(actionName)){
+            countOfActionedClient.put(actionName, countOfActionedClient.get(actionName)+1);
+        }
+        else countOfActionedClient.put(actionName,1);
     }
     /**
      * Метод возвращает кол-во активных клиентов в указанной акции
@@ -37,14 +47,6 @@ public class ActionedClient extends Actor {
      */
     public static Integer getCountOfActionedClient(String actionName) {
         return countOfActionedClient.get(actionName);
-    }
-    /**
-     * установка кол-ва клиентов в указанной акции
-     * @param Название акции
-     */
-    public static void setCountOfActionedClient(String actionName) {
-        countOfActionedClient.put(actionName,countOfActionedClient.get(actionName)+1);
-
     }
     /**
      * Метод для получения заказа
@@ -93,11 +95,5 @@ public class ActionedClient extends Actor {
     public boolean isTakeOrder() {
         return super.isTakeOrder;
     } 
-    public boolean isActionEligible(String actionName){
-        if (countOfActionedClient.get(actionName) > maxActionedClients){
-            return true;
-        }
-        else return false;
-     }
 
 }
