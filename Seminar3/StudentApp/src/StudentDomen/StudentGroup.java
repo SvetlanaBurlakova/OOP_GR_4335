@@ -6,26 +6,34 @@ import java.util.List;
 public class StudentGroup implements Iterable<Student>,Comparable<StudentGroup> {
     List<Student> group;
     private int idGroup;
-
+    /**
+     * 
+     * @param group Список студентов
+     * @param idGroup Уникальный номер группы
+     */
     public StudentGroup(List<Student> group, int idGroup) {
         this.group = group;
         this.idGroup = idGroup;
     }
-
+    /**
+     * Метод возвращает список студенов
+     * @return
+     */
     public List<Student> getGroup() {
         return group;
     }
-
+    /**
+     * Оперделяет передаваемый метод студентов в текущий
+     * @param group список студентов
+     */
     public void setGroup(List<Student> group) {
         this.group = group;
     }
-
+    /**
+     * Метод возвращает уникальный номер группы
+     */
     public int getIdGroup() {
         return idGroup;
-    }
-
-    public void setIdGroup(int idGroup) {
-        this.idGroup = idGroup;
     }
 
     @Override
@@ -37,7 +45,9 @@ public class StudentGroup implements Iterable<Student>,Comparable<StudentGroup> 
                 '}' + "\n" +
                 "====================================";
     }
-
+    /**
+     * Переопределение итератора
+     */
     @Override
     public Iterator<Student> iterator() {
 
@@ -62,6 +72,11 @@ public class StudentGroup implements Iterable<Student>,Comparable<StudentGroup> 
 
         //return new SGIterator(group);
     }
+    /**
+     * Переопределение сравнения
+     * @param o обект StudentGroup
+     * @return
+     */
     @Override
     public int compareTo(StudentGroup o) {
         System.out.println(this.getIdGroup()+" - "+o.getIdGroup());

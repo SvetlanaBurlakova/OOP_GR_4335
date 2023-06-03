@@ -10,10 +10,8 @@ import StudentDomen.StudentSteam;
 public class App {
     public static void main(String[] args) throws Exception {
         Person man = new Person("Денис", "Криницын", 35);
-        //System.out.println(man.toString());
 
         Student pers1 = new Student("Денис", "Криницын", 35, 1);
-        //System.out.println(pers1.toString());
 
         Student s1 = new Student("Сергей", "Иванов", 22, 101);
         Student s2 = new Student("Андрей", "Сидоров", 22, 111);
