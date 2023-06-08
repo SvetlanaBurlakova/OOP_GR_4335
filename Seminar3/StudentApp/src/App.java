@@ -105,13 +105,19 @@ public class App {
         listTeach.add(t2);
         listTeach.add(t3);
         listTeach.add(t4);
-        TeacherService serv = new TeacherService(listTeach);
-
-        //serv.getAll();
-        serv.getSortedByFIOsTeachersList();
         for(Teacher t:listTeach)
         {
             System.out.println(t.toString());
         }
+        TeacherService serv = new TeacherService(listTeach);
+        System.out.println("===========================================================");
+        //serv.getAll();
+        listTeach = serv.getSortedByFIOsTeachersList();
+        for(Teacher t:listTeach)
+        {
+            System.out.println(t.toString());
+        }
+        System.out.println("===========================================================");
+        
     }
-}//
+}
