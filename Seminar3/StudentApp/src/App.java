@@ -101,12 +101,13 @@ public class App {
         Teacher t3 = new Teacher("Иван", "Александров", 25, "Аспирант");
         Teacher t4 = new Teacher("Елена", "Михайлова", 30, "КМН");
         List<Teacher> listTeach = new ArrayList<Teacher>();
+        listTeach.add(t1);
+        listTeach.add(t2);
+        listTeach.add(t3);
+        listTeach.add(t4);
+        TeacherService serv = new TeacherService(listTeach);
 
-        TeacherService serv = new TeacherService();
-        serv.create("Михаил", "Судницын", 35);
-        serv.create("Андрей", "Сомов", 50);
-        serv.create("Иван", "Александров", 25);
-        serv.getAll();
+        //serv.getAll();
         serv.getSortedByFIOsTeachersList();
         for(Teacher t:listTeach)
         {

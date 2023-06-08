@@ -12,4 +12,13 @@ public class Teacher extends Person{
     public String getAcademDegree(){
         return acadDegree;
     } 
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", age=" + age +
+                ", acadDegree=" + acadDegree +
+                '}';
+    }
 }

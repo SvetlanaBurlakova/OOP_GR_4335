@@ -18,6 +18,9 @@ public class TeacherService implements iUserService{
     public TeacherService(){
         this.teachers = new ArrayList<Teacher>();
     }
+    public TeacherService(List<Teacher> teach){
+        this.teachers = teach;
+    }
     /**
      * Метод возвращает список учителей
      */
