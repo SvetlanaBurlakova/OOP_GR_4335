@@ -1,13 +1,30 @@
 package StudentDomen;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import Services.iPersonService;
+public class  AverageAge <T extends Person> {
+    int aver;
+    int sum;
+    int count = 0;
+    List <T> persons;
+    /**
+     * Конструктор класса расчета среднего возраста
+     * @param persons Список, содержащий 
+     * Persons или его наследников
+     */
+    public AverageAge(List <T> persons){
+        this.persons = persons;
+    }
+    /**
+     * Метод расчета среднего возраста
+     * @return средний возраст
+     */
+    public double getAverageAge(){
+        for (T per : persons) {
+            sum+=per.getAge();
+            count++;
+        }
+        return sum/count;
+    }
 
-public class  AverageAge <T extends Person> implements PersonIterator <T extends Person> {
-    List <T> persons = new List<T>;
-    persons = 
-
-    
 }

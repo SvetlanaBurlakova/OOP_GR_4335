@@ -5,6 +5,7 @@ import java.util.List;
 import Controllers.EmployeeController;
 import Controllers.TeacherController;
 import Services.TeacherService;
+import StudentDomen.AverageAge;
 import StudentDomen.Employee;
 import StudentDomen.Person;
 import StudentDomen.PersonComparator;
@@ -19,16 +20,16 @@ public class App {
 //
         //Student pers1 = new Student("Денис", "Криницын", 35, 1);
 //
-        //Student s1 = new Student("Сергей", "Иванов", 22, 101);
-        //Student s2 = new Student("Андрей", "Сидоров", 22, 111);
+        Student s1 = new Student("Сергей", "Иванов", 22, 101);
+        Student s2 = new Student("Андрей", "Сидоров", 22, 111);
         //Teacher t1 = new Teacher("Андрей", "Петров", 30, null);
         //Teacher t2 = new Teacher("Алексей", "Михайлов", 35, null);
         //PersonComparator <Student> compS = new PersonComparator<Student>();
         //compS.compare(s1, s2);
         //PersonComparator <Teacher> compT = new PersonComparator<Teacher>();
         //compT.compare(t1, t2);
-        //Student s3 = new Student("Иван", "Петров", 22, 121);
-        //Student s4 = new Student("Игорь", "Иванов", 23, 301);
+        Student s3 = new Student("Иван", "Петров", 22, 121);
+        Student s4 = new Student("Игорь", "Иванов", 23, 301);
         //Student s5 = new Student("Даша", "Цветкова", 23, 171);
         //Student s6 = new Student("Лена", "Незабудкина", 23, 104);
         //Student s7 = new Student("Михаил", "Макаров", 35, 201);
@@ -36,14 +37,14 @@ public class App {
         //Student s9 = new Student("Елена", "Сидоров", 21, 203);
 //
 //
-        //List<Student> listStud1 = new ArrayList<Student>();
+        List<Student> listStud1 = new ArrayList<Student>();
         //List<Student> listStud2 = new ArrayList<Student>();
         //List<Student> listStud3 = new ArrayList<Student>();
 //
-        //listStud1.add(s1);
-        //listStud1.add(s2);
-        //listStud1.add(s3);
-        //listStud1.add(s4);
+        listStud1.add(s1);
+        listStud1.add(s2);
+        listStud1.add(s3);
+        listStud1.add(s4);
         //listStud2.add(s5);
         //listStud2.add(s6);
         //listStud2.add(pers1);
@@ -93,7 +94,11 @@ public class App {
         //}
         //System.out.println("===============================");
         //System.out.println(steam1.toString());
-        //Employee per1 = new Employee("Борис", "Иванов", 40, "basic");
+        Employee per1 = new Employee("Борис", "Иванов", 40, "basic");
+        Employee per2 = new Employee("Анна", "Иванова", 20, "basic");
+        List <Employee> listEmployees = new ArrayList<Employee>();
+        listEmployees.add(per1);
+        listEmployees.add(per2);
         //EmployeeController empContr = new EmployeeController();
         //empContr.paySalary(per1);
         Teacher t1 = new Teacher("Михаил", "Судницын", 35, "КМН");
@@ -111,13 +116,18 @@ public class App {
         }
         TeacherService serv = new TeacherService(listTeach);
         System.out.println("===========================================================");
-        //serv.getAll();
+        
         listTeach = serv.getSortedByFIOsTeachersList();
         for(Teacher t:listTeach)
         {
             System.out.println(t.toString());
         }
         System.out.println("===========================================================");
-        
+        AverageAge avTeachers = new AverageAge<>(listTeach);
+        System.out.println("Средний возраст учителей: " + avTeachers.getAverageAge());
+        AverageAge avStudents = new AverageAge<>(listStud1);
+        System.out.println("Средний возраст студентов: " + avStudents.getAverageAge());
+        AverageAge avEmployees = new AverageAge<>(listEmployees);
+        System.out.println("Средний возраст студентов: " + avEmployees.getAverageAge());
     }
 }
