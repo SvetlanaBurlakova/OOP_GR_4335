@@ -128,6 +128,6 @@ public class App {
         AverageAge avStudents = new AverageAge<>(listStud1);
         System.out.println("Средний возраст студентов: " + avStudents.getAverageAge());
         AverageAge avEmployees = new AverageAge<>(listEmployees);
-        System.out.println("Средний возраст студентов: " + avEmployees.getAverageAge());
+        System.out.println("Средний возраст сотрудников: " + avEmployees.getAverageAge());
     }
 }
