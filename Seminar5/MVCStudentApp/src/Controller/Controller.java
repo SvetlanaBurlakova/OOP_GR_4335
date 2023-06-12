@@ -24,6 +24,7 @@ public class Controller {
         students = model.getAllStudents();
     }
 
+
     public boolean testData() {
         if (students.size() > 0) {
             return true;
@@ -46,7 +47,9 @@ public class Controller {
         //MVC
         //view.printAllStudents(model.getAllStudents());
     }
-
+    /**
+     * Доступные операции над студентами
+     */
     public void run()
     {
         Commands com = Commands.NONE;
@@ -66,7 +69,7 @@ public class Controller {
                     view.printAllStudents(students);
                     break;
                 case DELETE:
-                    DeleteStudent();
+                    model.DeleteStudent();
                     view.printAllStudents(students);
                     break;
 

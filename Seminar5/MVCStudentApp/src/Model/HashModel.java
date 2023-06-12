@@ -16,17 +16,19 @@ public class HashModel implements iGetModel{
     public HashModel(HashMap<Long,Student> students){
         this.students = students;
     }
-
+    /**
+     * Метод удаляет студента по ID
+     */
     public void DeleteStudent(){
         System.out.println("Введите ID студента, которого необходимо удалить");
         Scanner iScanner = new Scanner(System.in);
         Long id = iScanner.nextLong();
         if (students.containsKey(id)){
             students.remove(id);
-            System.out.printf("Студент с ID %n удален", id);
+            System.out.printf("Студент с ID %d удален", id);
         }
         else {
-            System.out.printf("Студента с указанным ID %n не найден", id);
+            System.out.printf("Студента с указанным ID %d не найден", id);
         }
     }
     /**

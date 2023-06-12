@@ -13,4 +13,9 @@ public class Model implements iGetModel{
     public List<Student> getAllStudents(){
         return students;
     }
+    @Override
+    public void DeleteStudent() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'DeleteStudent'");
+    }
 }
