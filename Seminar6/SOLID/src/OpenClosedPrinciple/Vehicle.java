@@ -2,15 +2,15 @@ package OpenClosedPrinciple;
 
 public class Vehicle {
     int maxSpeed;
-    String type;
+    double multiplierForMaxSpeed;
     /**
      * Конструктор - определение транспортного средства
      * @param максимальная скорость
-     * @param тип
+     * @param множитель для расчета разрешенной скорости
     */
-    public Vehicle(int maxSpeed, String type) {
+    public Vehicle(int maxSpeed, double multiplierForMaxSpeed) {
         this.maxSpeed = maxSpeed;
-        this.type = type;
+        this.multiplierForMaxSpeed = multiplierForMaxSpeed;
     }
     /**
      * Метод возвращает максимальнуб скорость т/c
@@ -19,12 +19,19 @@ public class Vehicle {
     public int getMaxSpeed() {
         return this.maxSpeed;
     }
-    /**
-     * Метод возвращает тип т/c
+        /**
+     * Метод возвращает множитель для расчета допустимой скорости т/c
      * @return
      */
-    public String getType() {
-        return this.type;
+    public double getMultiplierForMaxSpeed() {
+        return this.multiplierForMaxSpeed;
+    }
+    /**
+     * Расчет максимально разрешенной скорости
+     * @return
+     */
+    public double calculateAllowedSpeed(){
+        return this.maxSpeed*this.multiplierForMaxSpeed;
     }
 }
 

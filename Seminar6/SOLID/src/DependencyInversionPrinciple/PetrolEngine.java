@@ -1,10 +1,6 @@
 package DependencyInversionPrinciple;
 
-public class PetrolEngine extends Engine{
-
-    public PetrolEngine(String engineType) {
-        super(engineType);
-    }
+public class PetrolEngine implements Engine{
 
     @Override
     public void start(){

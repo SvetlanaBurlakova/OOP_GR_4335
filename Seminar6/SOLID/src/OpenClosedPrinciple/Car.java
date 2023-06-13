@@ -2,12 +2,13 @@ package OpenClosedPrinciple;
 
 public class Car extends Vehicle{
 
-    public Car(int maxSpeed, String type) {
-        super(maxSpeed, type);
+    public Car(int maxSpeed,double multiplierForMaxSpeed) {
+        super(maxSpeed, multiplierForMaxSpeed);
     }
 
+    @Override
     public double calculateAllowedSpeed(){
-        return this.getMaxSpeed() * 0.8;
+        return this.getMaxSpeed() * this.getMultiplierForMaxSpeed();
     }
     
 }

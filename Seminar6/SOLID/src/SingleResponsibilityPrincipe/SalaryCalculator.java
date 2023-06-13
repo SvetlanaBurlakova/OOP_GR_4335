@@ -1,37 +1,20 @@
 package SingleResponsibilityPrincipe;
 
-public class Salary {
-    private int baseSalary;
+public class SalaryCalculator {
     private int taxNumber;
 
-/** Конструктор для установки зарплаты и налога
- * @param baseSalary
+/** Конструктор для установки налоговой ставки
  * @param taxNumber
  */
-    public Salary(int baseSalary, int taxNumber) {
-        this.baseSalary = baseSalary;
+    public SalaryCalculator(int taxNumber) {
         this.taxNumber = taxNumber;
     }
     /**
      * Метод для расчета зарплаты после вычета налогов
      * @return возвращет зарплату после вычета налогов
      */
-    public int calculateNetSalary() {
-        return baseSalary - baseSalary * taxNumber;
-    }
-    /**
-     * Метод возвращает зарплату
-     * @return 
-     */
-    public int getBaseSalary() {
-        return baseSalary;
-    }
-    /**
-     * Метод устанавливает зарплату
-     * @param baseSalary
-     */
-    public void setBaseSalary(int baseSalary) {
-        this.baseSalary = baseSalary;
+    public int calculateNetSalary(Employee employee) {
+        return employee.getBaseSalary()*(1 - taxNumber);
     }
     /**
      * Метод возвращает налоговую ставку

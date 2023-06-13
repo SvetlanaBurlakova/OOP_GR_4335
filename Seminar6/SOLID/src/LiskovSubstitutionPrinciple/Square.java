@@ -1,16 +1,26 @@
 package LiskovSubstitutionPrinciple;
 
-public class Square extends Rectangle{
-    @Override
-    public void setWidth(int width) {
-        super.width = width;
-        super.height = width;
+public class Square implements Shape{
+    private int length;
+    /**
+     * Конструктор для квадрата
+     * @param длина стороны квадрата
+     */
+    public Square(int length) {
+        this.length = length;
     }
-
-    @Override
-    public void setHeight(int height) {
-        super.width = height;
-        super.height = height;
+    /**
+     * Установка длины квадрата
+     * @param length
+     */
+    public void setLength(int length) {
+        this.length = length;
+    }
+    /**
+     * расчет площади квадрата
+     */
+    public int area() {
+        return this.length * this.length;
     }
 }
 
