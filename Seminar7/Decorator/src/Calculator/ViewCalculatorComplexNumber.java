@@ -4,10 +4,15 @@ import java.util.Scanner;
 
 public class ViewCalculatorComplexNumber {
         private iCalculableComplex calculator;
-
+    /**
+     * Конструктор вью калькулятора комплексных чисел
+     */
     public ViewCalculatorComplexNumber(iCalculableComplex calculator) {
         this.calculator = calculator;
     }
+    /**
+     * Метод запуска калькулятора для расчетов
+     */
    public void run() {
         while (true) {
             int primaryRealArg = promptInt("Введите вещественную часть числа: ");
@@ -55,7 +60,9 @@ public class ViewCalculatorComplexNumber {
         System.out.print(message);
         return in.nextLine();
     }
-
+    /**
+     * Метод считывания числа с консоли
+     */
     private int promptInt(String message) {
         Scanner in = new Scanner(System.in);
         System.out.print(message);
